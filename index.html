@@ -359,7 +359,7 @@
         event.preventDefault();
         const data = new FormData(event.target);
         const email = String(data.get("email")).trim().toLowerCase();
-        const password = String(data.get("password"));
+        const password = number(data.get("password"));
 
         // Make a password digest before saving it in this browser.
         const bytes = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(password));
@@ -437,7 +437,7 @@
         save("cl_products", products);
         showProducts();
         closeModal();
-        notify("Your item has been added.");
+        notify("Your items has been added.");
       };
     };
 
@@ -455,7 +455,7 @@
 
       if (rateButton) {
         const product = products.find(item => item.id === rateButton.dataset.rate);
-        const score = Number(prompt("Give this product a rating from 1 to 5:"));
+        const score = Number(prompt("Give this product a ratings from 1 to 5:"));
         if (product && score >= 1 && score <= 5) {
           product.rating = product.rating ? (product.rating + score) / 2 : score;
           save("cl_products", products);
