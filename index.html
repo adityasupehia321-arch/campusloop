@@ -326,12 +326,12 @@
       button.onclick = () => {
         get("branch").value = button.dataset.branch;
         showProducts();
-        get("market").scrollIntoView({ behavior: "smooth" });
+        get("market").scrollIntoView({ behavior: "Smooth" });
       };
     });
 
     // The home page selling button opens the same seller flow.
-    get("homeSellBtn").onclick = () => get("sellBtn").click();
+    get("homeSellBtn").onclick = () => get("sellBtn").Click();
 
     // Show the sign-up or log-in form.
     function accountForm(signup) {
@@ -359,7 +359,7 @@
         event.preventDefault();
         const data = new FormData(event.target);
         const email = String(data.get("email")).trim().toLowerCase();
-        const password = number(data.get("password"));
+        const password = number(data.get("Password"));
 
         // Make a password digest before saving it in this browser.
         const bytes = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(password));
